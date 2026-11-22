@@ -16,6 +16,7 @@ jobs:
     outputs:
       fixed: ${{ steps.refresh.outputs.fixed }}
       mobile: ${{ steps.refresh.outputs.mobile }}
+      nationwide: ${{ steps.refresh.outputs.nationwide }}
     steps:
       - uses: actions/checkout@v4
       - name: Run updater tests
@@ -29,15 +30,18 @@ jobs:
           fixed=$?
           python scripts/update_mobile.py
           mobile=$?
+          python scripts/update_nationwide.py
+          nationwide=$?
           set -e
           echo "fixed=$fixed" >> "$GITHUB_OUTPUT"
           echo "mobile=$mobile" >> "$GITHUB_OUTPUT"
-          if [ "$fixed" -ne 0 ] && [ "$mobile" -ne 0 ]; then exit 1; fi
+          echo "nationwide=$nationwide" >> "$GITHUB_OUTPUT"
+          if [ "$fixed" -ne 0 ] && [ "$mobile" -ne 0 ] && [ "$nationwide" -ne 0 ]; then exit 1; fi
       - name: Save successful snapshots
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/locations.js data/mobile.js
+          git add data/locations.js data/mobile.js data/nationwide.js
           if ! git diff --cached --quiet; then
             git commit -m 'Refresh official camera data'
             git push
@@ -45,7 +49,7 @@ jobs:
       - name: Prepare public data files
         run: |
           mkdir -p public/data
-          cp data/locations.js data/mobile.js public/data/
+          cp data/locations.js data/mobile.js data/nationwide.js public/data/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
@@ -59,7 +63,7 @@ jobs:
       - id: publish
         uses: actions/deploy-pages@v4
   report-partial-failure:
-    if: ${{ always() && needs.update.result == 'success' && (needs.update.outputs.fixed != '0' || needs.update.outputs.mobile != '0') }}
+    if: ${{ always() && needs.update.result == 'success' && (needs.update.outputs.fixed != '0' || needs.update.outputs.mobile != '0' || needs.update.outputs.nationwide != '0') }}
     needs: [update, deploy]
     runs-on: ubuntu-latest
     steps:
