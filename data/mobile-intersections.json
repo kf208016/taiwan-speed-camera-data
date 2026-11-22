@@ -1,0 +1,275 @@
+{
+  "retrievedAt": "2026-11-21T13:54:40+00:00",
+  "locations": {
+    "西區 英才路與向上北路口": {
+      "lat": 24.147868995494303,
+      "lon": 120.66529036079586,
+      "road1": "英才路",
+      "road2": "向上北路",
+      "townCode": "B04",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "西區 忠明路與華美西街一段口": {
+      "lat": 24.16130793273763,
+      "lon": 120.66270652466628,
+      "road1": "忠明路",
+      "road2": "華美西街一段",
+      "townCode": "B04",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "西區 忠明南路與存中街口": {
+      "lat": 24.141250758178003,
+      "lon": 120.65725890340501,
+      "road1": "忠明南路",
+      "road2": "存中街",
+      "townCode": "B04",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "西區 林森路與府後街口": {
+      "lat": 24.134912331986765,
+      "lon": 120.6738151472067,
+      "road1": "林森路",
+      "road2": "府後街",
+      "townCode": "B04",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "西區 五權路與柳川西路二段口": {
+      "lat": 24.13510241016485,
+      "lon": 120.66567780318508,
+      "road1": "五權路",
+      "road2": "柳川西路二段",
+      "townCode": "B04",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "西區 公益路與精誠路口": {
+      "lat": 24.15079897364668,
+      "lon": 120.6551374769995,
+      "road1": "公益路",
+      "road2": "精誠路",
+      "townCode": "B04",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 中清路一段與武昌路口": {
+      "lat": 24.168769576501752,
+      "lon": 120.6725875623037,
+      "road1": "中清路一段",
+      "road2": "武昌路",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 中清路一段與文武街口": {
+      "lat": 24.15391723808977,
+      "lon": 120.67722091481623,
+      "road1": "中清路一段",
+      "road2": "文武街",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 中清路一段與五義街口": {
+      "lat": 24.152815928412956,
+      "lon": 120.67734176602201,
+      "road1": "中清路一段",
+      "road2": "五義街",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 中清路一段與英才路口": {
+      "lat": 24.155722381163255,
+      "lon": 120.67688179931606,
+      "road1": "中清路一段",
+      "road2": "英才路",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 三民路三段與錦祥街口": {
+      "lat": 24.157672056774313,
+      "lon": 120.68961082258417,
+      "road1": "三民路三段",
+      "road2": "錦祥街",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 三民路三段與益華街口": {
+      "lat": 24.157780642786616,
+      "lon": 120.68972864932616,
+      "road1": "三民路三段",
+      "road2": "益華街",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 三民路三段與育才街口": {
+      "lat": 24.149841548343563,
+      "lon": 120.68418813637307,
+      "road1": "三民路三段",
+      "road2": "育才街",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 三民路三段與精武路口": {
+      "lat": 24.14598243726226,
+      "lon": 120.68245596569969,
+      "road1": "三民路三段",
+      "road2": "精武路",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 進化路與育隆路口": {
+      "lat": 24.15754616492243,
+      "lon": 120.69434452432716,
+      "road1": "進化路",
+      "road2": "育隆路",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 進化北路與衛道路口": {
+      "lat": 24.162682898982812,
+      "lon": 120.6850029036671,
+      "road1": "進化北路",
+      "road2": "衛道路",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 進化北路與學士路口": {
+      "lat": 24.163053719079993,
+      "lon": 120.68095727749285,
+      "road1": "進化北路",
+      "road2": "學士路",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 崇德路一段與五義街口": {
+      "lat": 24.15591244050271,
+      "lon": 120.68573787161733,
+      "road1": "崇德路一段",
+      "road2": "五義街",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 崇德路一段與進化北路口": {
+      "lat": 24.162682898982812,
+      "lon": 120.6850029036671,
+      "road1": "崇德路一段",
+      "road2": "進化北路",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 崇德路一段與健行路口": {
+      "lat": 24.159044066787082,
+      "lon": 120.68499214619185,
+      "road1": "崇德路一段",
+      "road2": "健行路",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 崇德路一段與美德街口": {
+      "lat": 24.157617433978896,
+      "lon": 120.6849858039976,
+      "road1": "崇德路一段",
+      "road2": "美德街",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 北屯路與梅亭東街口": {
+      "lat": 24.1601323444791,
+      "lon": 120.69174036153241,
+      "road1": "北屯路",
+      "road2": "梅亭東街",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北區 東光路與東成路口": {
+      "lat": 24.1574296354464,
+      "lon": 120.69931437398736,
+      "road1": "東光路",
+      "road2": "東成路",
+      "townCode": "B05",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "東區 東光路與福昌街口": {
+      "lat": 24.14688959614209,
+      "lon": 120.69788272842365,
+      "road1": "東光路",
+      "road2": "福昌街",
+      "townCode": "B02",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "南屯區 環中路五段與向心南路口": {
+      "lat": 24.121012705627237,
+      "lon": 120.63627936316927,
+      "road1": "環中路五段",
+      "road2": "向心南路",
+      "townCode": "B07",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "南屯區 環中路五段與永春東一路口": {
+      "lat": 24.12248087805935,
+      "lon": 120.63476999576397,
+      "road1": "環中路五段",
+      "road2": "永春東一路",
+      "townCode": "B07",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "南屯區 文心南路與龍富二路口": {
+      "lat": 24.12451437147638,
+      "lon": 120.64710130205953,
+      "road1": "文心南路",
+      "road2": "龍富二路",
+      "townCode": "B07",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "北屯區 環中東路二段與軍福十五路口": {
+      "lat": 24.174057216805828,
+      "lon": 120.72075072247942,
+      "road1": "環中東路二段",
+      "road2": "軍福十五路",
+      "townCode": "B08",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "西屯區 文心路二段與大墩十八街口": {
+      "lat": 24.15842808694744,
+      "lon": 120.64695898782983,
+      "road1": "文心路二段",
+      "road2": "大墩十八街",
+      "townCode": "B06",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    },
+    "太平區 大興路與大興十六街口": {
+      "lat": 24.156903335913665,
+      "lon": 120.73701536396487,
+      "road1": "大興路",
+      "road2": "大興十六街",
+      "townCode": "B27",
+      "coordinateSource": "https://data.gov.tw/dataset/167920",
+      "precision": "intersection"
+    }
+  }
+}

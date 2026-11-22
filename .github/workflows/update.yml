@@ -1,0 +1,66 @@
+name: Update official camera data
+on:
+  schedule:
+    - cron: '10 19 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: camera-data-publication
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    outputs:
+      fixed: ${{ steps.refresh.outputs.fixed }}
+      mobile: ${{ steps.refresh.outputs.mobile }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run updater tests
+        run: python -m unittest discover -s tests -v
+      - id: refresh
+        name: Download and validate official data
+        shell: bash
+        run: |
+          set +e
+          python scripts/update_fixed.py
+          fixed=$?
+          python scripts/update_mobile.py
+          mobile=$?
+          set -e
+          echo "fixed=$fixed" >> "$GITHUB_OUTPUT"
+          echo "mobile=$mobile" >> "$GITHUB_OUTPUT"
+          if [ "$fixed" -ne 0 ] && [ "$mobile" -ne 0 ]; then exit 1; fi
+      - name: Save successful snapshots
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/locations.js data/mobile.js
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh official camera data'
+            git push
+          fi
+      - name: Prepare public data files
+        run: |
+          mkdir -p public/data
+          cp data/locations.js data/mobile.js public/data/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.publish.outputs.page_url }}
+    steps:
+      - id: publish
+        uses: actions/deploy-pages@v4
+  report-partial-failure:
+    if: ${{ always() && needs.update.result == 'success' && (needs.update.outputs.fixed != '0' || needs.update.outputs.mobile != '0') }}
+    needs: [update, deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'One dataset failed; its previous snapshot was retained.' && exit 1
