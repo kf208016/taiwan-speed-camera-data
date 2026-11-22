@@ -5,6 +5,7 @@ import json
 import re
 import sys
 import urllib.request
+import urllib.error
 import zipfile
 from datetime import date, datetime, timezone
 from html.parser import HTMLParser
@@ -88,8 +89,12 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 
 def fetch(url, maximum):
     request = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0 RoadCameraLookup/1.0'})
-    with urllib.request.build_opener(NoRedirect).open(request, timeout=30) as response:
-        data = response.read(maximum + 1)
+    try:
+        with urllib.request.build_opener(NoRedirect).open(request, timeout=30) as response:
+            data = response.read(maximum + 1)
+    except urllib.error.HTTPError as exc:
+        print(f'官方來源 {urlsplit(url).hostname} 回傳 HTTP {exc.code}', file=sys.stderr)
+        raise
     if len(data) > maximum: raise ValueError('來源檔案過大')
     return data
 
