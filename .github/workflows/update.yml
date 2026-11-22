@@ -19,7 +19,7 @@ jobs:
       nationwide: ${{ steps.refresh.outputs.nationwide }}
       hsinchu: ${{ steps.refresh.outputs.hsinchu }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Run updater tests
         run: python -m unittest discover -s tests -v
       - id: refresh
@@ -54,7 +54,7 @@ jobs:
         run: |
           mkdir -p public/data
           cp data/locations.js data/mobile.js data/nationwide.js data/hsinchu-mobile.js public/data/
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: public
   deploy:
@@ -65,10 +65,21 @@ jobs:
       url: ${{ steps.publish.outputs.page_url }}
     steps:
       - id: publish
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
   report-partial-failure:
     if: ${{ always() && needs.update.result == 'success' && (needs.update.outputs.fixed != '0' || needs.update.outputs.mobile != '0' || needs.update.outputs.nationwide != '0' || needs.update.outputs.hsinchu != '0') }}
     needs: [update, deploy]
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'One dataset failed; its previous snapshot was retained.' && exit 1
+      - name: Report failed data sources
+        env:
+          FIXED_STATUS: ${{ needs.update.outputs.fixed }}
+          MOBILE_STATUS: ${{ needs.update.outputs.mobile }}
+          NATIONWIDE_STATUS: ${{ needs.update.outputs.nationwide }}
+          HSINCHU_STATUS: ${{ needs.update.outputs.hsinchu }}
+        run: |
+          [ "$FIXED_STATUS" = 0 ] || echo '::error::國道固定式來源更新失敗，保留上次快照。'
+          [ "$MOBILE_STATUS" = 0 ] || echo '::error::臺中移動式來源更新失敗，保留上次快照。'
+          [ "$NATIONWIDE_STATUS" = 0 ] || echo '::error::全國測速來源更新失敗，保留上次快照。'
+          [ "$HSINCHU_STATUS" = 0 ] || echo '::error::新竹移動式來源更新失敗，保留上次快照。'
+          exit 1
