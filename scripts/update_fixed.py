@@ -94,6 +94,7 @@ def fetch(url, maximum):
             data = response.read(maximum + 1)
     except urllib.error.HTTPError as exc:
         print(f'官方來源 {urlsplit(url).hostname} 回傳 HTTP {exc.code}', file=sys.stderr)
+        print(f'回應伺服器：{exc.headers.get("Server", "未提供")}', file=sys.stderr)
         raise
     if len(data) > maximum: raise ValueError('來源檔案過大')
     return data
